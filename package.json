@@ -13,11 +13,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "description": "freecodecamp leaderboard",
+  "description": "markdown-previewer",
   "main": "index.js",
   "devDependencies": {},
   "keywords": [
-    "leaderboard"
+    "markdown-previewer"
   ],
   "author": "risyana@gmail.com",
   "license": "ISC"
