@@ -1,8 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
 var marked = require('marked');
+const PLACEHOLDER = `
+Heading
+=======
+Sub-heading
+-----------
+### Another deeper heading
+Paragraphs are separated
+by a blank line.
 
-class App extends Component {
+Leave 2 spaces at the end of a line to do a  
+line break
+
+Text attributes *italic*, **bold**, 
+\`monospace\`, ~~strikethrough~~ .
+
+Shopping list:
+  * apples
+  * oranges
+  * pears
+
+Numbered list:
+  1. apples
+  2. oranges
+  3. pears
+
+The rain---not the reign---in
+Spain.
+
+
+ *[Eka Risyana](https://www.freecodecamp.org/risyana)*`;
+
+
+class App extends React.Component {
   constructor(props){
     super(props);
     this.convertText = this.convertText.bind(this);
@@ -11,33 +42,57 @@ class App extends Component {
   convertText(){
     this.refs.AppResult.refs.result.innerHTML = marked(this.refs.AppSource.refs.source.value);
   }
+  
+  componentDidMount(){
+    this.refs.AppSource.refs.source.value = PLACEHOLDER;
+    this.convertText();
+  }
 
   render(){
     return(
-      <div>
-        <TextArea ref='AppSource' onChange = {this.convertText} />
-        <MarkedText ref='AppResult' />
+      <div className='container'>
+        <div className='row'>
+          <div className='col col-md-12'>
+            <h2 className='text-center'>{this.props.title}</h2>
+            <hr/>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col col-md-6'>
+            <h4>Markdown Text</h4>
+            <TextArea ref='AppSource' onChange = {this.convertText} />
+          </div>
+          <div className='col col-md-6'>
+            <h4>Preview</h4>
+            <MarkedText ref='AppResult' />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-class TextArea extends Component {
+class TextArea extends React.Component {
   render(){
     return(
-      <div className='form-group' style={{width:"500px"}}>
-         <textarea onChange = {this.props.onChange} ref='source' className='form-control' rows='10' id='sourcetext'>
+      <div className='form-group' >
+        <textarea 
+          onChange = {this.props.onChange} 
+          ref='source' 
+          className='form-control' 
+          rows='25' 
+          id='sourcetext'>
         </textarea>
       </div>
     );
   }
 }
 
-class MarkedText extends Component {
+
+class MarkedText extends React.Component {
   render(){
     return(
       <div ref='result'>
-        ...
       </div>
     );
   }

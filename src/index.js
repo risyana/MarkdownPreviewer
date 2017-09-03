@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App title="Markdown Previewer" />, document.getElementById('root'));
+ReactDOM.render(<App title="Markdown Previewer (Github Flavoured)" />, document.getElementById('root'));
 registerServiceWorker();
 
 if (module.hot){
