@@ -88,7 +88,6 @@ class TextArea extends React.Component {
   }
 }
 
-
 class MarkedText extends React.Component {
   render(){
     return(
