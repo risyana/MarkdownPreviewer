@@ -53,7 +53,7 @@ class App extends React.Component {
       <div className='container'>
         <div className='row'>
           <div className='col col-md-12'>
-            <h2 className='text-center'>{this.props.title}</h2>
+            <h3 className='text-center'>{this.props.title}</h3>
             <hr/>
           </div>
         </div>
@@ -80,7 +80,7 @@ class TextArea extends React.Component {
           onChange = {this.props.onChange} 
           ref='source' 
           className='form-control' 
-          rows='25' 
+          rows='20' 
           id='sourcetext'>
         </textarea>
       </div>
